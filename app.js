@@ -10,7 +10,8 @@ const connectDB = require("./config/db")
 
 const app = express();
 
-connectDB()
+connectDB();
+
 app
   .use(logger('dev'))
   .use(express.json())
@@ -28,7 +29,7 @@ app
 
 // error handler
 
-  .use(function(err, req, res, next) {
+  app.use(function(err, req, res, next) {
   // set locals, only providing error in development
 
   // render the error page

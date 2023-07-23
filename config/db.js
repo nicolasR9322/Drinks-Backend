@@ -4,6 +4,8 @@ const moongose = require("mongoose");
 const connectDB = async () => {
     try {
         
+        // moongose.set("strictQuery", false);
+
         const connection = await moongose.connect(process.env.DB_CONNECTION, {
             useNewUrlParser : true,
             useUnifiedTopology : true
@@ -15,6 +17,7 @@ const connectDB = async () => {
 
         const url = `${connection.connection.host}:${connection.connection.port}`
 
+        console.log(`MongoDB connected in ${url}`)
 
     } catch (error) {
         console.log(error.message)
