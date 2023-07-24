@@ -24,7 +24,13 @@ const userSchema = new moongose.Schema({
     checked : {
         type : Boolean,
         default : false
-    }
+    },
+    favorites : [
+        {
+            type : moongose.Schema.Types.ObjectId,
+            ref : "Favorite"
+        }
+    ]
     
 },
 {
