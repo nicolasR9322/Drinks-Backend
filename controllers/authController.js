@@ -43,6 +43,8 @@ const register = async (req,res) => {
 const login = async (req,res) => {
 
     try {
+
+        console.log(req.body);
         const {email,password} = req.body;
 
         if([email,password].includes("") || !email || !password){
