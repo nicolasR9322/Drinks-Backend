@@ -53,7 +53,7 @@ const login = async (req,res) => {
 
         let user = await User.findOne({
             email : email
-        });
+        }).populate("favorites");
 
         if(!user){
             throw createError(400 , "El usuario no existe")
@@ -66,6 +66,7 @@ const login = async (req,res) => {
                     user: {
                         id : user._id,
                         name : user.name,
+                        favorites : user.favorites? user.favorites.map(favorite => favorite.drink) : []
                     }
                 })
             })
